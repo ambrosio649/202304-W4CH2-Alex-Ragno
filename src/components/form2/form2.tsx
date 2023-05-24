@@ -1,6 +1,14 @@
-export function Form2() {
+type PropsType = {
+  changeStep: (step: 1 | 2 | 3 | 4) => void;
+};
+
+export function Form2({ changeStep }: PropsType) {
+  const handleClick = () => {
+    changeStep(1);
+  };
   return (
     <section>
+      <h2>Step 2</h2>
       <form>
         <label htmlFor="username">
           <p>Username:</p>
@@ -20,6 +28,7 @@ export function Form2() {
           <option value="business">Business</option>
         </select>
       </form>
+      <button onClick={handleClick}>Previous page</button>
     </section>
   );
 }

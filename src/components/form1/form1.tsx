@@ -1,6 +1,14 @@
-export function Form1() {
+type PropsType = {
+  changeStep: (step: 1 | 2 | 3 | 4) => void;
+};
+
+export function Form1({ changeStep }: PropsType) {
+  const handleClick = () => {
+    changeStep(2);
+  };
   return (
     <section>
+      <h2>Step 1</h2>
       <form>
         <label htmlFor="name">
           <p>Name:</p>
@@ -34,6 +42,7 @@ export function Form1() {
           <input type="checkbox" name="" id="chexkbox" />
         </label>
       </form>
+      <button onClick={handleClick}>Next page</button>
     </section>
   );
 }
